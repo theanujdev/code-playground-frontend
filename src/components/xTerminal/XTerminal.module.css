@@ -1,0 +1,40 @@
+.terminal__container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* background: #0cceff; */
+  padding-bottom: 30px;
+  background: #002b36;
+  overflow: hidden;
+}
+
+.terminal__container ::-webkit-scrollbar {
+  width: 0;
+}
+
+.terminal__bar {
+  background: aliceblue;
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 0px;
+  padding: 6px 30px;
+  height: 33px;
+}
+
+.terminal {
+  width: 100%;
+  height: 100%;
+
+  /* background: #00a5ce; */
+  /* background: #002b36; */
+  /* border: solid 50px red; */
+  /* border: solid 10px #002b36; */
+}
+
+.terminal__wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  padding-right: 0;
+  background: #002b36;
+}

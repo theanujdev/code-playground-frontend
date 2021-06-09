@@ -1,0 +1,21 @@
+.panel {
+  width: 50px;
+  min-width: 50px;
+  height: 100%;
+  background: #3a3a3a;
+  color: rgb(171, 178, 191);
+}
+
+.panel div {
+  padding: 15px 12px;
+  height: 60px;
+}
+.panel div:hover {
+  color: white;
+  cursor: pointer;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}

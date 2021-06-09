@@ -1,8 +1,9 @@
 {
-  "name": "code-editor",
+  "name": "code-playground-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@monaco-editor/react": "^4.1.3",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -10,11 +11,18 @@
     "@types/node": "^12.20.14",
     "@types/react": "^17.0.9",
     "@types/react-dom": "^17.0.6",
+    "@types/socket.io-client": "^3.0.0",
+    "monaco-editor": "^0.23.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
+    "react-reflex": "^4.0.1",
     "react-scripts": "4.0.3",
+    "socket.io-client": "^4.1.2",
     "typescript": "^4.3.2",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "xterm": "^4.12.0",
+    "xterm-addon-fit": "^0.5.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,0 +1,49 @@
+.editor__bar {
+  display: flex;
+  /* background: #313131; */
+  background: #3a3a3a;
+  height: 40px;
+  font-weight: 600;
+  overflow: hidden;
+  min-height: 40px;
+  overflow-x: auto;
+}
+
+.file__title {
+  color: rgb(171, 178, 191);
+  margin-right: 10px;
+  display: inline-block;
+}
+.active {
+  background: #1e1e1e;
+}
+
+.tab__wrapper {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+.tab__wrapper:hover {
+  cursor: pointer;
+  background: #292929;
+}
+.closeIcon {
+  width: 20px;
+  height: 20px;
+  color: #abb2bf;
+  position: relative;
+  margin-right: -10px;
+  /* background: #8b8b8b; */
+}
+/* .closeIcon:hover {
+  background: grey;
+} */
+.closeIcon svg {
+  pointer-events: none;
+}
+.closeIcon path {
+  stroke: #abb2bf;
+}
+.closeIcon:hover path {
+  stroke: #e2e2e2;
+}

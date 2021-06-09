@@ -1,0 +1,12 @@
+.reflex-container.vertical > .reflex-splitter {
+  width: 5px !important;
+}
+
+.reflex-container.horizontal > .reflex-splitter {
+  height: 5px !important;
+}
+
+.reflex-splitter:hover {
+  background: #14b3ff !important;
+  transition: all 0.2s ease-in !important;
+}
