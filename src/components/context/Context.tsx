@@ -23,8 +23,8 @@ interface IAppContext {
     Socket<DefaultEventsMap, DefaultEventsMap> | undefined
   >;
 }
-// @ts-ignore
-export const AppContext = createContext<IAppContext>({});
+
+export const AppContext = createContext<IAppContext>({} as IAppContext);
 
 const Context: FC = ({ children }) => {
   const [username, setUsername] = useState<string>();
@@ -52,9 +52,3 @@ const Context: FC = ({ children }) => {
 };
 
 export default Context;
-
-// {
-//     files: ["Untitled"],
-//     tabs: ["Untitled"],
-//     activeTab: "Untitled",
-//   }

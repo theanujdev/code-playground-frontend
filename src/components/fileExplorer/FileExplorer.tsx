@@ -1,19 +1,17 @@
-// @ts-nocheck
-import styles from "./FileExplorer.module.css";
-// import { IEditorState } from "../../utils/types";
+import { FC, useContext } from "react";
 import { MdDeleteForever } from "react-icons/md";
 import { AiOutlineFileAdd } from "react-icons/ai";
-import { FC, useContext } from "react";
 import { AppContext } from "../context";
+import styles from "./FileExplorer.module.css";
 
 const FileExplorer: FC = () => {
   const { username, editorState, setEditorState, code, setCode, io } =
     useContext(AppContext);
-  // console.log("FE Page", { editorState, setEditorState, code, setCode });
-  const handleActive = (e: React.MouseEventHandler<HTMLDivElement>) => {
-    const filename = e.target.innerText;
+
+  const handleActive = (e: React.MouseEvent<HTMLDivElement>) => {
+    const filename = (e.target as HTMLDivElement).innerText;
     if (e.isTrusted) {
-      const args = { activeTab: filename };
+      const args: any = { activeTab: filename };
       if (!editorState.tabs.includes(filename)) {
         args.tabs = [...editorState.tabs, filename];
       }
@@ -21,12 +19,11 @@ const FileExplorer: FC = () => {
     }
   };
 
-  const handlDeleteFile = (e) => {
+  const handlDeleteFile = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
-    console.log("del file", e);
-    const filename = e.target.parentElement.innerText;
+    const filename = (e.target as HTMLDivElement).parentElement!.innerText;
     if (e.isTrusted && window.confirm(`Delete file ${filename}?`) === true) {
-      const args = {};
+      const args: any = {};
       args.tabs = [...editorState.tabs.filter((tab) => tab !== filename)];
       args.files = [...editorState.files.filter((file) => file !== filename)];
       args.activeTab = args.tabs[0] === undefined ? "" : args.tabs[0];
@@ -34,39 +31,27 @@ const FileExplorer: FC = () => {
       delete newCode[filename];
       console.log("nc>", newCode, filename);
       setCode({ ...newCode });
-      // console.log(args.tabs, filename);
-      // console.log({ ...editorState, ...args });
-
       setEditorState((prev) => ({ ...prev, ...args }));
-
-      // emit code and editor state to backend
-      io.current.emit("delete_file", username, filename);
+      io.current?.emit("delete_file", username, filename);
     }
   };
 
-  const handleFileCreate = (e) => {
-    console.log("create file");
+  const handleFileCreate = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.isTrusted) {
       const filename = prompt("Enter filename");
-      console.log("fn>>>", filename, typeof filename);
       if (!filename) return;
-      const args = {};
+      const args: any = {};
       args.tabs = [...editorState.tabs, filename];
       args.files = [...editorState.files, filename];
       args.activeTab = filename;
       const newCode = code;
       newCode[filename] = "";
-      // console.log("nc>", newCode, filename);
       setCode({ ...newCode });
-      // console.log(args.tabs, filename);
-      // console.log({ ...editorState, ...args });
-
       setEditorState((prev) => ({ ...prev, ...args }));
-
-      // emit code and editor state to backend
-      io.current.emit("create_file", username, filename);
+      io.current?.emit("create_file", username, filename);
     }
   };
+
   return (
     <div className={styles.explorer__container}>
       <div className={styles.explorer__bar}>

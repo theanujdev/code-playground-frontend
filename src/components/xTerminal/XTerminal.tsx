@@ -5,7 +5,7 @@ import { ITerminalColor } from "../../utils/types";
 import styles from "./XTerminal.module.css";
 import "xterm/css/xterm.css";
 import { AppContext } from "../context";
-import { debounce } from "../../utils/functions";
+import debounce from "../../utils/debounce";
 
 let term: Terminal;
 let fitAddon: FitAddon;
@@ -119,21 +119,22 @@ const XTerminal: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
-    // const observeEl = tref.current;
+    const observeEl = tref.current;
 
-    // const resizeObserver = new ResizeObserver(
-    //   debounce(
-    //     () => {
-    //       fitAddon.fit();
-    //     },
-    //     500,
-    //     null
-    //   )
-    // );
-    // resizeObserver.observe(observeEl);
+    const resizeObserver = new ResizeObserver(
+      debounce(
+        () => {
+          if (tref.current) fitAddon.fit();
+          // console.log("el", observeEl, "----", tref.current);
+        },
+        500,
+        null
+      )
+    );
+    resizeObserver.observe(observeEl);
 
     return () => {
-      // resizeObserver.unobserve(observeEl);
+      resizeObserver.unobserve(observeEl);
       console.log("unobs");
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps

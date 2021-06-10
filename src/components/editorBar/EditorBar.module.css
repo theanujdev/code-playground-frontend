@@ -1,6 +1,5 @@
 .editor__bar {
   display: flex;
-  /* background: #313131; */
   background: #3a3a3a;
   height: 40px;
   font-weight: 600;
@@ -33,11 +32,8 @@
   color: #abb2bf;
   position: relative;
   margin-right: -10px;
-  /* background: #8b8b8b; */
 }
-/* .closeIcon:hover {
-  background: grey;
-} */
+
 .closeIcon svg {
   pointer-events: none;
 }

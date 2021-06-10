@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { useContext } from "react";
 import { GrFormClose } from "react-icons/gr";
 import { AppContext } from "../context";
@@ -6,11 +5,11 @@ import styles from "./EditorBar.module.css";
 
 const EditorBar = () => {
   const { editorState, setEditorState } = useContext(AppContext);
-  const handleCloseTab = (e: React.MouseEventHandler<HTMLDivElement>) => {
+  const handleCloseTab = () => (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
-    const filename = e.target.parentElement.innerText;
+    const filename = (e.target as HTMLDivElement).parentElement!.innerText;
     if (e.isTrusted) {
-      const args = {};
+      const args: any = {};
       args.tabs = [...editorState.tabs.filter((tab) => tab !== filename)];
       if (!editorState.activeTab) {
         args.activeTab = args.tabs[0] === undefined ? "" : args.tabs[0];
@@ -19,8 +18,8 @@ const EditorBar = () => {
     }
   };
 
-  const handleTabClick = (e: React.MouseEventHandler<HTMLDivElement>) => {
-    const filename = e.target.innerText;
+  const handleTabClick = () => (e: React.MouseEvent<HTMLDivElement>) => {
+    const filename = (e.target as HTMLDivElement).innerText;
     if (e.isTrusted) {
       setEditorState((prev) => ({ ...prev, activeTab: filename }));
     }

@@ -9,14 +9,3 @@ export enum ITerminalColor {
   White = "\x1B[1;37m",
   Reset = "\x1B[0m",
 }
-
-// export interface IUsers {
-//   username: string;
-//   setUsername: React.Dispatch<React.SetStateAction<string>>;
-// }
-
-// export interface IEditorState {
-//   files: string[];
-//   tabs: string[];
-//   activeTab: string;
-// }

@@ -1,18 +1,15 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { AppContext } from "../../components/context";
-// import { UserContext } from "../../utils/UserContext";
-
+import { SERVER_URL } from "../../config";
 import styles from "./HomePage.module.css";
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
   const { setUsername } = useContext(AppContext);
   const [name, setName] = useState<string>("");
-  // const user = useRef() as React.MutableRefObject<HTMLInputElement>;
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // case 1 : send name, if created setUsername & receive cookie. if not no cookie set
-
-    fetch("http://localhost:4000", {
+    fetch(SERVER_URL + "/api/register", {
       method: "POST",
       body: JSON.stringify({
         name,
@@ -27,20 +24,17 @@ const HomePage = () => {
         if (json?.status >= 400) {
           throw new Error(json.message);
         }
-        if (json.msg === "created user") {
-          setUsername(name);
-          // setUsername("");
-        } else if (json.msg === "cookie set") {
+        if (json.msg === "created user" || json.msg === "logged in") {
           setUsername(name);
         } else {
           throw new Error("Something went wrong");
         }
-        // case 2 : new user, do nothing (automatically dircts to home page and post username)
       })
       .catch((err) => {
-        alert("Error : " + err);
+        alert("Error : " + err.message);
       });
   };
+
   return (
     <div className={styles.container}>
       <div className={styles.title}>
@@ -48,9 +42,8 @@ const HomePage = () => {
       </div>
       <form className={styles.form} onSubmit={handleSubmit}>
         <input
-          // value={username}
+          value={name}
           onChange={(e) => setName(e.target.value)}
-          // ref={user}
           type="text"
           name="name"
           id="name"
