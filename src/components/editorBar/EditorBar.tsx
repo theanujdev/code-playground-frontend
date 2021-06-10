@@ -5,7 +5,7 @@ import styles from "./EditorBar.module.css";
 
 const EditorBar = () => {
   const { editorState, setEditorState } = useContext(AppContext);
-  const handleCloseTab = () => (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleCloseTab = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
     const filename = (e.target as HTMLDivElement).parentElement!.innerText;
     if (e.isTrusted) {
@@ -18,7 +18,7 @@ const EditorBar = () => {
     }
   };
 
-  const handleTabClick = () => (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleTabClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const filename = (e.target as HTMLDivElement).innerText;
     if (e.isTrusted) {
       setEditorState((prev) => ({ ...prev, activeTab: filename }));

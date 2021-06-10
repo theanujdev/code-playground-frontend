@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  /* background: #0cceff; */
   padding-bottom: 30px;
   background: #002b36;
   overflow: hidden;
@@ -24,11 +23,6 @@
 .terminal {
   width: 100%;
   height: 100%;
-
-  /* background: #00a5ce; */
-  /* background: #002b36; */
-  /* border: solid 50px red; */
-  /* border: solid 10px #002b36; */
 }
 
 .terminal__wrapper {
