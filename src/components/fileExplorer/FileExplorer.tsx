@@ -22,6 +22,8 @@ const FileExplorer: FC = () => {
   const handlDeleteFile = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
     const filename = (e.target as HTMLDivElement).parentElement!.innerText;
+    if (editorState.files.length === 1)
+      return alert("There should be atleast 1 file.");
     if (e.isTrusted && window.confirm(`Delete file ${filename}?`) === true) {
       const args: any = {};
       args.tabs = [...editorState.tabs.filter((tab) => tab !== filename)];

@@ -10,9 +10,9 @@ const WebRender = () => {
     const timeout = setTimeout(() => {
       setSrcDoc(`
         <html>
-          <body>${code["index.html"]}</body>
-          <style>${code["style.css"]}</style>
-          <script>${code["app.js"]}</script>
+          <body>${code["index.html"] || ""}</body>
+          <style>${code["style.css"] || ""}</style>
+          <script>${code["app.js"] || ""}</script>
         </html>
       `);
     }, 1000);

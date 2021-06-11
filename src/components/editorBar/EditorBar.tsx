@@ -8,7 +8,7 @@ const EditorBar = () => {
   const handleCloseTab = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
     const filename = (e.target as HTMLDivElement).parentElement!.innerText;
-    if (e.isTrusted) {
+    if (e.isTrusted && editorState.tabs.length > 1) {
       const args: any = {};
       args.tabs = [...editorState.tabs.filter((tab) => tab !== filename)];
       if (!editorState.activeTab) {
