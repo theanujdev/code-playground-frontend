@@ -9,7 +9,7 @@ import "xterm/css/xterm.css";
 
 const XTerminal: React.FC = () => {
   const { username, io } = useContext(AppContext);
-  const validCommmands = ["ls", "cat", "whoami"];
+  const validCommmands = ["ls", "cat", "whoami", "clear", "ping"];
   const command = useRef<string>("");
   const terminalEl = useRef() as React.MutableRefObject<HTMLInputElement>;
   const terminalRef = useRef() as React.MutableRefObject<HTMLDivElement>;
@@ -51,7 +51,7 @@ const XTerminal: React.FC = () => {
         ITerminalColor.Reset +
         "."
     );
-    term.writeln("Type some keys and commands to play around.\n");
+    term.writeln("Type commands ping, ls, cat, clear, etc. to play around.\n");
     prompt();
 
     term.onKey((e) => {
@@ -59,6 +59,12 @@ const XTerminal: React.FC = () => {
         case "Enter":
           term.writeln("");
           if (!command.current) return prompt();
+          if (command.current === "clear") {
+            command.current = "";
+            term.clear();
+            prompt();
+            return;
+          }
           io.current?.emit("command", command.current);
           command.current = "";
           break;
@@ -118,7 +124,9 @@ const XTerminal: React.FC = () => {
   return (
     <div className={styles.terminal__container}>
       <div className={styles.terminal__bar}>
-        <div className="t-left">Terminal Session of @{username}</div>
+        <div className="t-left">
+          Terminal Session of <span>@{username}</span>
+        </div>
         <div className="t-right">🚀</div>
       </div>
       <div className={styles.terminal__wrapper} ref={terminalRef}>

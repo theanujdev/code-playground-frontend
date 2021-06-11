@@ -51,7 +51,7 @@ const PlaygroundPage: FC = () => {
         <ReflexContainer orientation="horizontal">
           <ReflexElement className="top-pane">
             <ReflexContainer orientation="vertical">
-              <ReflexElement className="left-pane" flex={0.26} minSize={50}>
+              <ReflexElement className="left-pane" flex={0.2} minSize={50}>
                 <div className={styles.container}>
                   <Panel />
                   <FileExplorer />
@@ -68,7 +68,7 @@ const PlaygroundPage: FC = () => {
             </ReflexContainer>
           </ReflexElement>
           <ReflexSplitter propagate={true} />
-          <ReflexElement className="bottom-pane" flex={0.4} minSize={35}>
+          <ReflexElement className="bottom-pane" flex={0.4} minSize={33}>
             <XTerminal />
           </ReflexElement>
         </ReflexContainer>
