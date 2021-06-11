@@ -29,7 +29,6 @@ const FileExplorer: FC = () => {
       args.activeTab = args.tabs[0] === undefined ? "" : args.tabs[0];
       const newCode = code;
       delete newCode[filename];
-      console.log("nc>", newCode, filename);
       setCode({ ...newCode });
       setEditorState((prev) => ({ ...prev, ...args }));
       io.current?.emit("delete_file", username, filename);
@@ -40,6 +39,10 @@ const FileExplorer: FC = () => {
     if (e.isTrusted) {
       const filename = prompt("Enter filename");
       if (!filename) return;
+      if (editorState.files.includes(filename)) {
+        alert(`File ${filename} already exists!`);
+        return;
+      }
       const args: any = {};
       args.tabs = [...editorState.tabs, filename];
       args.files = [...editorState.files, filename];

@@ -1,6 +1,6 @@
 const env = {
-  SERVER_URL: "http://localhost:4000",
-  SOCKET_URL: "http://localhost:4000",
+  SERVER_URL: "http://localhost:80",
+  SOCKET_URL: "http://localhost:80",
 };
 
 export const { SERVER_URL, SOCKET_URL } = env;

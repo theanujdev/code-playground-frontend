@@ -118,7 +118,7 @@ const XTerminal: React.FC = () => {
   return (
     <div className={styles.terminal__container}>
       <div className={styles.terminal__bar}>
-        <div className="t-left">Terminal Session of {username}</div>
+        <div className="t-left">Terminal Session of @{username}</div>
         <div className="t-right">🚀</div>
       </div>
       <div className={styles.terminal__wrapper} ref={terminalRef}>

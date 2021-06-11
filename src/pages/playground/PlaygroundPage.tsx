@@ -51,7 +51,7 @@ const PlaygroundPage: FC = () => {
         <ReflexContainer orientation="horizontal">
           <ReflexElement className="top-pane">
             <ReflexContainer orientation="vertical">
-              <ReflexElement className="left-pane" minSize={50}>
+              <ReflexElement className="left-pane" flex={0.26} minSize={50}>
                 <div className={styles.container}>
                   <Panel />
                   <FileExplorer />

@@ -1,6 +1,7 @@
 .explorer__container {
   height: 100%;
   width: 100%;
+  min-width: 200px;
   display: flex;
   flex-direction: column;
   background: #1e1e1e;
