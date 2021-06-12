@@ -50,7 +50,7 @@ npm install
 - Start the server
 
 ```bash
-npm run start
+npm start
 ```
 
 > **Note:** You need to run [Code Playground Backend](https://github.com/ProdexOne/code-playground-backend) server in the background.
@@ -65,7 +65,7 @@ Code is refactored and project structure is optimized for scalability. Along wit
 
 ## Feedback
 
-If you have any feedback, please reach out to us at [@AnujS_IN](https://twitter.com/AnujS_IN)
+If you have any feedback, please reach out at [@AnujS_IN](https://twitter.com/AnujS_IN)
 
 ## Authors
 
