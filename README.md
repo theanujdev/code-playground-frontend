@@ -43,8 +43,7 @@ npm install
 
 - Update constants in _src/config/index.ts_ file :
 
-  `SERVER_URL`
-  `SOCKET_URL`
+  `SERVER_URL`, `SOCKET_URL`
 
   (which are going to be same in most cases)
 
@@ -53,6 +52,8 @@ npm install
 ```bash
 npm run start
 ```
+
+> **Note:** You need to run [Code Playground Backend](https://github.com/ProdexOne/code-playground-backend) server in the background.
 
 ## Optimizations
 
@@ -69,10 +70,6 @@ If you have any feedback, please reach out to us at [@AnujS_IN](https://twitter.
 ## Authors
 
 - [@ProdexOne](https://www.github.com/ProdexOne)
-
-## Related
-
-Here is the [Code Playground Backend](https://github.com/ProdexOne/code-playground-backend) server.
 
 ## License
 
