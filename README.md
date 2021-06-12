@@ -9,6 +9,7 @@ This project provides a real-time cloud-based code sync and editing and website 
 ## Tech Stack
 
 **Client:** React, Typescript, Monoco-editor, Socket.io-client, Xtermjs, React reflex
+
 **Server:** Node, Express, Typescript, Mongoose, Cookie-parser, Socketio
 
 ## Features
@@ -18,7 +19,7 @@ This project provides a real-time cloud-based code sync and editing and website 
 - Create, update, delete files
 - Realtime cloud sync of code
 - Preview webpage
-- Built-in terminal
+- Built-in terminal with syntax-highlighting
 
 ## Run Locally
 
